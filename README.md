@@ -23,6 +23,7 @@ Five externals for Windows version of Max 8 (Max/MSP) that produces different ki
 <img src="example/demowshfolder.gif" width="300">
 
 Here are the transfer functions:
+
 <img src="example/transfer.png" width="600">
 
 This project contains, in addition, the prebuilt externals in .mxe64 format and a help file for each one.
