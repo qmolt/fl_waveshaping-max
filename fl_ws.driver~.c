@@ -34,7 +34,12 @@ void fl_ws_driver_float(t_fl_ws_driver *x, double farg)
 
 	switch (inlet) {
 	case 1:
-		x->param = (float)min(1., max(EPSILON_PARAM,1. - num)); /* parse parameter */
+#ifdef MAC_VERSION
+        x->param = (float)MIN(1., MAX(EPSILON_PARAM,1. - num)); /* parse parameter */
+#endif
+#ifdef WIN_VERSION
+        x->param = (float)min(1., max(EPSILON_PARAM,1. - num)); /* parse parameter */
+#endif
 		break;
 	default:
 		break;
@@ -87,7 +92,12 @@ void fl_ws_driver_perform64(t_fl_ws_driver *x, t_object *dsp64, double **inputs,
 	while (n--) {
 		if (x->param_connected) {
 			param = (float)*param_sig++;
-			param = (float)min(1., max(EPSILON_PARAM, 1. - param));
+#ifdef MAC_VERSION
+            param = (float)MIN(1., MAX(EPSILON_PARAM, 1. - param));
+#endif
+#ifdef WIN_VERSION
+            param = (float)min(1., max(EPSILON_PARAM, 1. - param));
+#endif
 		}
 		
 		val = *input++ / param;

@@ -34,7 +34,12 @@ void fl_ws_sides_float(t_fl_ws_sides *x, double farg)
 
 	switch (inlet) {
 	case 1:
-		x->param = (float)max(0., min(1. - EPSILON_PARAM, num)); /* parse parameter */
+#ifdef MAC_VERSION
+        x->param = (float)MAX(0., MIN(1. - EPSILON_PARAM, num)); /* parse parameter */
+#endif
+#ifdef WIN_VERSION
+        x->param = (float)max(0., min(1. - EPSILON_PARAM, num)); /* parse parameter */
+#endif
 		
 		break;
 	default:
@@ -89,7 +94,12 @@ void fl_ws_sides_perform64(t_fl_ws_sides *x, t_object *dsp64, double **inputs, l
 	while (n--) {
 		if (x->param_connected) {
 			param = (float)*param_sig++;
-			param = (float)max(0., min(1. - EPSILON_PARAM, param));
+#ifdef MAC_VERSION
+            param = (float)MAX(0., MIN(1. - EPSILON_PARAM, param));
+#endif
+#ifdef WIN_VERSION
+            param = (float)max(0., min(1. - EPSILON_PARAM, param));
+#endif
 		}
 
 		a_in = *input++;
