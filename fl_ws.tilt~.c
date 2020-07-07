@@ -34,7 +34,12 @@ void fl_ws_tilt_float(t_fl_ws_tilt *x, double farg)
 
 	switch (inlet) {
 	case 1:
-		x->param = (float)max(-1. + EPSILON_PARAM, min(1. - EPSILON_PARAM, num)); /* parse parameter */
+#ifdef MAC_VERSION
+        x->param = (float)MAX(-1. + EPSILON_PARAM, MIN(1. - EPSILON_PARAM, num)); /* parse parameter */
+#endif
+#ifdef WIN_VERSION
+        x->param = (float)max(-1. + EPSILON_PARAM, min(1. - EPSILON_PARAM, num)); /* parse parameter */
+#endif
 		break;
 	default:
 		break;
@@ -88,7 +93,12 @@ void fl_ws_tilt_perform64(t_fl_ws_tilt *x, t_object *dsp64, double **inputs, lon
 	while (n--) {
 		if (x->param_connected) {
 			param = (float)*param_sig++;
-			param = (float)max(-1. + EPSILON_PARAM, min(1. - EPSILON_PARAM, param));
+#ifdef MAC_VERSION
+            param = (float)MAX(-1. + EPSILON_PARAM, MIN(1. - EPSILON_PARAM, param));
+#endif
+#ifdef WIN_VERSION
+            param = (float)max(-1. + EPSILON_PARAM, min(1. - EPSILON_PARAM, param));
+#endif
 		}
 
 		a_in = *input++;

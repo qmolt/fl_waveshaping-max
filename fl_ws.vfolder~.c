@@ -34,7 +34,12 @@ void fl_ws_vfolder_float(t_fl_ws_vfolder *x, double farg)
 
 	switch (inlet) {
 	case 1:
-		x->param = (float)max(0., min(1., num)); /* parse parameter */
+#ifdef MAC_VERSION
+#endif
+        x->param = (float)MAX(0., MIN(1., num)); /* parse parameter */
+#ifdef WIN_VERSION
+        x->param = (float)max(0., min(1., num)); /* parse parameter */
+#endif
 		break;
 	default:
 		break;
@@ -88,7 +93,12 @@ void fl_ws_vfolder_perform64(t_fl_ws_vfolder *x, t_object *dsp64, double **input
 	while (n--) {
 		if (x->param_connected) {
 			param = (float)(1. - *param_sig++);
-			param = (float)max(0., min(1., param));
+#ifdef MAC_VERSION
+            param = (float)MAX(0., MIN(1., param));
+#endif
+#ifdef WIN_VERSION
+            param = (float)max(0., min(1., param));
+#endif
 		}
 
 		a_in = *input++;
