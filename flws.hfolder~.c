@@ -1,9 +1,9 @@
-#include "fl_ws.hfolder~.h"
+#include "flws.hfolder~.h"
 
 /* initialization routine */
 void ext_main(void *r)
 {
-	fl_ws_hfolder_class = class_new("fl_ws.hfolder~", (method)fl_ws_hfolder_new, (method)fl_ws_hfolder_free, sizeof(t_fl_ws_hfolder), 0, A_GIMME, 0);
+	fl_ws_hfolder_class = class_new("flws.hfolder~", (method)fl_ws_hfolder_new, (method)fl_ws_hfolder_free, sizeof(t_fl_ws_hfolder), 0, A_GIMME, 0);
 
 	class_addmethod(fl_ws_hfolder_class, (method)fl_ws_hfolder_dsp64, "dsp64", A_CANT, 0);
 	class_addmethod(fl_ws_hfolder_class, (method)fl_ws_hfolder_float, "float", A_FLOAT, 0);

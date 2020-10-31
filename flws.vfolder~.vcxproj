@@ -119,10 +119,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="fl_ws.sides~.c" />
+    <ClCompile Include="flws.vfolder~.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fl_ws.sides~.h" />
+    <ClInclude Include="flws.vfolder~.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

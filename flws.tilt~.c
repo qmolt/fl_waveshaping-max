@@ -1,9 +1,9 @@
-#include "fl_ws.tilt~.h"
+#include "flws.tilt~.h"
 
 /* initialization routine */
 void ext_main(void *r)
 {
-	fl_ws_tilt_class = class_new("fl_ws.tilt~", (method)fl_ws_tilt_new, (method)fl_ws_tilt_free, sizeof(t_fl_ws_tilt), 0, A_GIMME, 0);
+	fl_ws_tilt_class = class_new("flws.tilt~", (method)fl_ws_tilt_new, (method)fl_ws_tilt_free, sizeof(t_fl_ws_tilt), 0, A_GIMME, 0);
 
 	class_addmethod(fl_ws_tilt_class, (method)fl_ws_tilt_dsp64, "dsp64", A_CANT, 0);
 	class_addmethod(fl_ws_tilt_class, (method)fl_ws_tilt_float, "float", A_FLOAT, 0);

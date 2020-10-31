@@ -23,6 +23,7 @@
     <ProjectGuid>{BFCCAEA3-486D-464D-BD69-CAD0947DC137}</ProjectGuid>
     <RootNamespace>flvdelay</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>flws.tilt~</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MaxDebug|Win32'" Label="Configuration">
@@ -119,10 +120,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="fl_ws.vfolder~.c" />
+    <ClCompile Include="flws.tilt~.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fl_ws.vfolder~.h" />
+    <ClInclude Include="flws.tilt~.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

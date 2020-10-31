@@ -1,9 +1,9 @@
-#include "fl_ws.sides~.h"
+#include "flws.sides~.h"
 
 /* initialization routine */
 void ext_main(void *r)
 {
-	fl_ws_sides_class = class_new("fl_ws.sides~", (method)fl_ws_sides_new, (method)fl_ws_sides_free, sizeof(t_fl_ws_sides), 0, A_GIMME, 0);
+	fl_ws_sides_class = class_new("flws.sides~", (method)fl_ws_sides_new, (method)fl_ws_sides_free, sizeof(t_fl_ws_sides), 0, A_GIMME, 0);
 
 	class_addmethod(fl_ws_sides_class, (method)fl_ws_sides_dsp64, "dsp64", A_CANT, 0);
 	class_addmethod(fl_ws_sides_class, (method)fl_ws_sides_float, "float", A_FLOAT, 0);

@@ -119,10 +119,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="fl_ws.driver~.c" />
+    <ClCompile Include="flws.driver~.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fl_ws.driver~.h" />
+    <ClInclude Include="flws.driver~.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

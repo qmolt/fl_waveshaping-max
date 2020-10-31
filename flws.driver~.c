@@ -1,9 +1,9 @@
-#include "fl_ws.driver~.h"
+#include "flws.driver~.h"
 
 /* initialization routine */
 void ext_main(void *r)
 {
-	fl_ws_driver_class = class_new("fl_ws.driver~", (method)fl_ws_driver_new, (method)fl_ws_driver_free, sizeof(t_fl_ws_driver), 0, A_GIMME, 0);
+	fl_ws_driver_class = class_new("flws.driver~", (method)fl_ws_driver_new, (method)fl_ws_driver_free, sizeof(t_fl_ws_driver), 0, A_GIMME, 0);
 
 	class_addmethod(fl_ws_driver_class, (method)fl_ws_driver_dsp64, "dsp64", A_CANT, 0);
 	class_addmethod(fl_ws_driver_class, (method)fl_ws_driver_float, "float", A_FLOAT, 0);
@@ -34,12 +34,7 @@ void fl_ws_driver_float(t_fl_ws_driver *x, double farg)
 
 	switch (inlet) {
 	case 1:
-#ifdef MAC_VERSION
-        x->param = (float)MIN(1., MAX(EPSILON_PARAM,1. - num)); /* parse parameter */
-#endif
-#ifdef WIN_VERSION
-        x->param = (float)min(1., max(EPSILON_PARAM,1. - num)); /* parse parameter */
-#endif
+        x->param = (float)MIN(1., MAX(EPSILON_PARAM, 1. - num)); /* parse parameter */
 		break;
 	default:
 		break;
@@ -92,12 +87,7 @@ void fl_ws_driver_perform64(t_fl_ws_driver *x, t_object *dsp64, double **inputs,
 	while (n--) {
 		if (x->param_connected) {
 			param = (float)*param_sig++;
-#ifdef MAC_VERSION
             param = (float)MIN(1., MAX(EPSILON_PARAM, 1. - param));
-#endif
-#ifdef WIN_VERSION
-            param = (float)min(1., max(EPSILON_PARAM, 1. - param));
-#endif
 		}
 		
 		val = *input++ / param;

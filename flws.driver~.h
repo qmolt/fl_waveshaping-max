@@ -8,7 +8,7 @@
 #include <math.h>
 
 #define EPSILON_PARAM 0.001
-#define DEFAULT_PARAM 0.
+#define DEFAULT_PARAM 0.001
 
 /* object structure */
 typedef struct _fl_ws_driver {
